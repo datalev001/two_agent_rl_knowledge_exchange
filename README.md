@@ -1,1 +1,7 @@
-# two_agent_rl_knowledge_exchange
+# Emergent Knowledge via Conversation: A Two-Agent Reinforcement Learning Framework
+From isolated learners to ε-Nash consensus through policy exchange and best responses
+Many learning systems train in isolation on their own data and biases. We ask a simple, human question: if two agents with different and incomplete knowledge talk and trade what they know, can they outperform either one alone?
+We test this idea in a shared grid world with obstacles and a common goal. Two heterogeneous learners - tabular Q-learning and SARSA(λ) - start with distinct priors: partial hazard maps and mild action preferences. Each is strong in its own region but unreliable everywhere.
+Our method has two cooperative steps. First, the agents fuse knowledge (union of obstacle maps and a light blend of learned Q-values) to build a shared picture. Then they alternate best responses via Iterated Best Response, moving toward an ε-Nash point where neither can gain much unilaterally.
+We evaluate with decision-focused metrics: team return, steps until both agents reach the goal, and collision rate. To gauge closeness to "truth," we compare against a shortest-path lower bound and a small exact joint-state oracle on sampled starts. This keeps the study auditable and reproducible.
+The contribution is a minimal, practical framework for emergent knowledge in multi-agent settings: a clean testbed, a transparent exchange-and-update protocol, and metrics that quantify both effectiveness and safety. It is designed to scale beyond toy worlds and to inform future human–LLM collaboration, where sharing partial models and iterating best responses may create value beyond any single learner.
